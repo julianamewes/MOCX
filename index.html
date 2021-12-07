@@ -11,23 +11,46 @@
             background-color:hotpink;
         }
     </style>
-</head>
+    <script>
+    include ("valida_cpf.js"); session_destroy()
+    </script> 
+               
+                  
+
+ </head>
 <body>
                
     <h1> <b></b> Complete os campos abaixo para a realização do cadastro:</h1>
             <hr>   
                 
-            <form method="post" action="cadastro_cpf.php" id="cadastro_cpf"
+            <form name="cadastro_cpf" method="post" action="cadastro_cpf.php" id="cadastro_cpf"
+           onclick="validar();">
+
+           <fieldset>
+
+            <script> 
+                function only_number(){
+                    if(event.keyCode<48 || event.keyCode>57)
+                    event.returnValue=false;
+                }
+                function valida_cpf(){
+                    if ( valida_cpf( 'cpf' )) 
+                    <hr> CPF OK </hr>
+                    event.returnValue=false;
+                }
+            </script>
    
             <p>Digite abaixo seu nome completo:</p>
             <input type="text" name="nome" placeholder= "Nome" class="form-control" required> <br><br>
+
             <p>Selecione abaixo sua data de nascimento:</p>
             <input type="date" name="data_nascimento" placeholder="Selecione sua data de nascimento" class="form-control" required><br><br>
+
             <p>Digite abaixo o número de seu CPF:</p>
             <input oninput="mascara(this)" type="text" name="cpf" class="form-control" required><br><br> 
-            
-            
-            <input type="submit" valeu="Enviar" class="btn btn-primary">
+                        
+            <input type="submit" valeu="Enviar" class="btn btn-primary" onclick="validar()">
+
         </form>
 
         <script> 
@@ -46,17 +69,7 @@
          
          }
 
-             </script> 
-
-        <script>
-            $ (document). ready(function(){
-    $('#cadastro_cpf').on("submit"), function(event) {
-        event.preventDefault();
-        alert("Cadastrar!")
-
-    }
-});
-        </script>    
+             </script>       
      
                     
            
